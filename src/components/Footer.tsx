@@ -2,15 +2,13 @@ import { CONTACT, NAV_LINKS, SOCIALS } from '../data';
 
 export function Footer() {
   return (
-    <footer className="relative z-10 bg-[#0B1A12] text-white/70">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-14 md:py-16">
-        <div className="flex flex-col md:flex-row md:items-start justify-between gap-10">
+    <footer className="relative z-10 bg-[#0B1A12] text-white/70 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-14 md:pt-20">
+        <div className="flex flex-col md:flex-row md:items-start justify-between gap-10 pb-14 md:pb-20">
           <div className="max-w-xs">
-            <img
-              src={`${import.meta.env.BASE_URL}image.png`}
-              alt="We Assist Co"
-              className="h-6 md:h-7 mb-4 brightness-0 invert opacity-90"
-            />
+            <p className="font-serif text-3xl text-[#F7F7F7] mb-3">
+              We Assist Co.
+            </p>
             <p className="text-sm leading-relaxed text-white/50">
               In the habit of growing businesses. Business strategy, product
               sourcing and design — from Melbourne to the world.
@@ -80,8 +78,16 @@ export function Footer() {
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="mt-12 md:mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-white/40">
+      <div className="relative select-none pointer-events-none" aria-hidden="true">
+        <p className="font-serif text-center text-[18vw] leading-[0.8] text-white/[0.07] whitespace-nowrap translate-y-[12%]">
+          We Assist Co
+        </p>
+      </div>
+
+      <div className="relative border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-white/40">
           <p>© 2026 We Assist Co · ACN 647841861</p>
           <p>In the habit of growing businesses</p>
         </div>

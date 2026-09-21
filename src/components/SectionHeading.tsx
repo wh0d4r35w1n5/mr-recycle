@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { cn } from '../lib/utils';
-import { FadeDown } from './FadeDown';
+import { Reveal } from './Reveal';
 
 interface SectionHeadingProps {
   eyebrow: string;
@@ -18,7 +18,7 @@ export function SectionHeading({
   align = 'center',
 }: SectionHeadingProps) {
   return (
-    <FadeDown>
+    <Reveal>
       <div
         className={cn(
           'max-w-3xl mb-12 md:mb-16',
@@ -52,6 +52,6 @@ export function SectionHeading({
           </p>
         )}
       </div>
-    </FadeDown>
+    </Reveal>
   );
 }

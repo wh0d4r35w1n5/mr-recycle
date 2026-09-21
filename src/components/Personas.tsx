@@ -1,7 +1,8 @@
 import { ArrowRight } from 'lucide-react';
 import { PERSONAS } from '../data';
-import { FadeDown } from './FadeDown';
+import { Reveal } from './Reveal';
 import { SectionHeading } from './SectionHeading';
+import { Spotlight } from './Spotlight';
 
 export function Personas() {
   return (
@@ -11,7 +12,8 @@ export function Personas() {
           eyebrow="Who we assist"
           title={
             <>
-              We service all levels
+              We service{' '}
+              <em className="font-serif italic text-[#4A7144]">all levels</em>
               <br />
               of business.
             </>
@@ -21,34 +23,38 @@ export function Personas() {
 
         <div className="grid md:grid-cols-3 gap-4 md:gap-6">
           {PERSONAS.map((persona, i) => (
-            <FadeDown key={persona.name} delay={i * 0.12}>
-              <a
-                href="#contact"
-                className="group bg-white rounded-3xl border border-black/10 p-6 md:p-8 flex flex-col h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="flex items-start justify-between mb-8 md:mb-10">
-                  <span className="w-11 h-11 rounded-2xl bg-[#EFF4F0] flex items-center justify-center">
-                    <persona.icon className="w-5 h-5 text-[#3C684D]" />
-                  </span>
-                  <span className="text-xs text-gray-400 font-medium tabular-nums">
-                    0{i + 1}
-                  </span>
-                </div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#4A7144] mb-1.5">
-                  {persona.level} · {persona.size}
-                </p>
-                <h3 className="text-xl md:text-2xl font-normal text-[#142A1E] mb-3">
-                  {persona.name}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed flex-1">
-                  {persona.copy}
-                </p>
-                <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-[#3C684D]">
-                  {persona.cta}
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </span>
+            <Reveal key={persona.name} delay={i * 0.12} className="h-full">
+              <a href="#contact" className="group block h-full">
+                <Spotlight className="bg-white rounded-3xl border border-black/10 overflow-hidden h-full flex flex-col hover:shadow-2xl hover:shadow-[#142A1E]/10 hover:-translate-y-1.5 transition-all duration-500">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img
+                      src={`${import.meta.env.BASE_URL}${persona.image}`}
+                      alt={persona.name}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                    <span className="absolute top-4 left-4 liquid-glass px-3 py-1.5 rounded-full text-[11px] font-medium text-white backdrop-blur-md bg-black/20">
+                      {persona.level} · {persona.size}
+                    </span>
+                    <span className="absolute bottom-4 right-4 font-serif italic text-white/70 text-lg">
+                      0{i + 1}
+                    </span>
+                  </div>
+                  <div className="p-6 md:p-7 flex flex-col flex-1">
+                    <h3 className="font-serif text-2xl md:text-[1.7rem] text-[#142A1E] mb-3">
+                      {persona.name}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed flex-1">
+                      {persona.copy}
+                    </p>
+                    <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-[#3C684D]">
+                      {persona.cta}
+                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </Spotlight>
               </a>
-            </FadeDown>
+            </Reveal>
           ))}
         </div>
       </div>

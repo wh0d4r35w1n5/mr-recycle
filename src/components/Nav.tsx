@@ -1,12 +1,29 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { NAV_LINKS } from '../data';
+import { cn } from '../lib/utils';
+import { Magnetic } from './Magnetic';
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <nav className="sticky top-0 z-50 bg-[#F7F7F7]/80 backdrop-blur-md border-b border-black/5">
+    <nav
+      className={cn(
+        'sticky top-0 z-50 backdrop-blur-md transition-all duration-500',
+        scrolled
+          ? 'bg-[#F7F7F7]/90 border-b border-black/10'
+          : 'bg-[#F7F7F7]/60 border-b border-transparent'
+      )}
+    >
       <div className="flex items-center justify-between px-4 md:px-8 h-16 md:h-[4.5rem] max-w-7xl mx-auto w-full">
         <a href="#top" className="flex items-center">
           <img
@@ -35,13 +52,15 @@ export function Nav() {
           >
             hello@weassistco.com
           </a>
-          <a
-            href="#contact"
-            className="px-4 md:px-6 py-2 md:py-2.5 bg-black text-white text-sm rounded-full hover:bg-gray-900 transition-colors flex items-center gap-1.5"
-          >
-            Let's Chat
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
+          <Magnetic strength={0.3}>
+            <a
+              href="#contact"
+              className="px-4 md:px-6 py-2 md:py-2.5 bg-black text-white text-sm rounded-full hover:bg-gray-900 transition-colors flex items-center gap-1.5"
+            >
+              Let's Chat
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
+          </Magnetic>
           <button
             className="lg:hidden p-2 text-gray-800"
             onClick={() => setOpen(!open)}

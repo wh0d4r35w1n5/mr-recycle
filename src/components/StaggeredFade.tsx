@@ -7,11 +7,21 @@ interface StaggeredFadeProps {
   text: string;
   className?: string;
   style?: CSSProperties;
+  accent?: string;
+  accentClassName?: string;
 }
 
-export function StaggeredFade({ text, className, style }: StaggeredFadeProps) {
+export function StaggeredFade({
+  text,
+  className,
+  style,
+  accent,
+  accentClassName,
+}: StaggeredFadeProps) {
   const ref = useRef<HTMLHeadingElement>(null);
   const inView = useInView(ref, { once: true });
+  const accentStart = accent ? text.indexOf(accent) : -1;
+  const accentEnd = accentStart + (accent?.length ?? 0);
 
   return (
     <motion.h1
@@ -25,6 +35,11 @@ export function StaggeredFade({ text, className, style }: StaggeredFadeProps) {
       {text.split('').map((char, i) => (
         <motion.span
           key={i}
+          className={
+            accentStart >= 0 && i >= accentStart && i < accentEnd
+              ? accentClassName
+              : undefined
+          }
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.3, delay: i * 0.03 }}
