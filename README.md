@@ -1,32 +1,41 @@
-# React + TypeScript + Vite
+# We Assist Co
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Marketing site for **We Assist Co** — a Melbourne-based business development agency.
+In the habit of growing businesses.
 
-Currently, two official plugins are available:
+**Live:** https://wh0d4r35w1n5.github.io/weassistco/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+- React 19 + TypeScript + Vite
+- Tailwind CSS v4 (`@tailwindcss/vite`)
+- Framer Motion — staggered character reveals, scroll-triggered fade-downs
+- Lucide React icons
+- Custom `BoomerangVideoBg` — captures video frames via `requestVideoFrameCallback`
+  (60fps `setInterval` fallback) and ping-pongs them on `<canvas>` for a seamless
+  infinite loop
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Sections
 
-## Expanding the Oxlint configuration
+Hero (video background) · Stats · Who We Assist (Bootstrapper / SMB / Enterprise) ·
+Services (Strategy, Sourcing, Design) · Case Studies · About + Team · Testimonials ·
+Insights · Marquee CTA + Contact · Footer
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+All content lives in `src/data.ts` — edit there to update services, team,
+testimonials, articles, stats, contact details and socials.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Develop
+
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Deploy
+
+GitHub Actions (`.github/workflows/deploy.yml`) builds and deploys to GitHub Pages
+on every push to `main`. The Vite `base` is set to `/weassistco/` automatically in
+CI (`process.env.GITHUB_ACTIONS`); local dev uses `/`.
+
+Assets referenced from `public/` use `import.meta.env.BASE_URL` so they resolve
+correctly in both environments.
