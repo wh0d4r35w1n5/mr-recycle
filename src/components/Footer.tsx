@@ -80,17 +80,20 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="relative select-none pointer-events-none" aria-hidden="true">
-        <p className="font-serif text-center text-[18vw] leading-[0.8] text-white/[0.07] whitespace-nowrap translate-y-[12%]">
-          We Assist Co
-        </p>
-      </div>
-
       <div className="relative border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-white/40">
           <p>© 2026 We Assist Co · ACN 647841861</p>
           <p>In the habit of growing businesses</p>
         </div>
+      </div>
+
+      <div
+        className="relative select-none pointer-events-none overflow-hidden"
+        aria-hidden="true"
+      >
+        <p className="font-serif text-center text-[16vw] leading-[0.78] text-white/[0.07] whitespace-nowrap translate-y-[18%]">
+          We Assist Co
+        </p>
       </div>
     </footer>
   );

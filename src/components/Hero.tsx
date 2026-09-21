@@ -20,7 +20,7 @@ export function Hero() {
     <section
       id="top"
       ref={ref}
-      className="relative h-[calc(100svh-4rem)] md:h-[calc(100svh-4.5rem)] min-h-[560px] flex flex-col overflow-hidden"
+      className="relative h-[calc(100svh-4rem)] md:h-[calc(100svh-4.5rem)] min-h-[620px] flex flex-col overflow-hidden"
     >
       <motion.div
         className="absolute inset-0 z-0"
@@ -49,7 +49,7 @@ export function Hero() {
             text="We help you build best in class business."
             accent="best in class"
             accentClassName="font-serif italic text-[#4A7144]"
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] font-normal text-center max-w-6xl mb-4 md:mb-5 px-4"
+            className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.08] font-normal text-center max-w-6xl mb-4 md:mb-5 px-4"
             style={{ color: '#142A1E' }}
           />
 
