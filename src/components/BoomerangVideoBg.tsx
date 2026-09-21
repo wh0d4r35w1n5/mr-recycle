@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-const VIDEO_URL = 'https://media.promptsites.co/assets/2ebba8bedd6fed53.mp4';
+const VIDEO_URL = '/hero-bg.mp4';
 const MAX_FRAME_WIDTH = 960;
 const PLAYBACK_FPS = 30;
 
