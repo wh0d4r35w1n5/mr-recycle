@@ -14,7 +14,7 @@ export default function App() {
 
       <nav className="flex items-center justify-between px-4 md:px-8 py-4 md:py-6 relative z-10">
         <div className="flex items-center gap-4 md:gap-6">
-          <img src="/image.png" alt="Mr Recycle's" className="h-6 md:h-7" />
+          <img src={`${import.meta.env.BASE_URL}image.png`} alt="Mr Recycle's" className="h-6 md:h-7" />
           <button className="flex items-center gap-1.5 text-sm text-black">
             <Globe className="w-4 h-4" />
             En

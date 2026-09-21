@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-const VIDEO_URL = '/hero-bg.mp4';
+const VIDEO_URL = `${import.meta.env.BASE_URL}hero-bg.mp4`;
 const MAX_FRAME_WIDTH = 960;
 const PLAYBACK_FPS = 30;
 
