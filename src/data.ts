@@ -242,6 +242,39 @@ export const STATS = [
   { value: 2020, suffix: '', label: 'founded in Melbourne, still founder-led' },
 ];
 
+export interface Founder {
+  name: string;
+  role: string;
+  image: string;
+  imagePosition: string;
+  bio: string;
+  quote: string;
+  quoteBy: string;
+}
+
+export const FOUNDERS: Founder[] = [
+  {
+    name: 'Taylor',
+    role: 'Director & Co-Founder',
+    image: 'images/taylor.jpg',
+    imagePosition: '50% 20%',
+    bio: 'The strategist. Audits, plans and the team to push them through — Taylor turns "we should probably" into "here\'s what happens Monday".',
+    quote:
+      'We laid down a 3 month strategy to get my venue back on track — and that is exactly what they did.',
+    quoteBy: 'Lulu Ren',
+  },
+  {
+    name: 'Oscar',
+    role: 'Co-Founder & Product Steward',
+    image: 'images/oscar.jpg',
+    imagePosition: '50% 20%',
+    bio: 'The steward. From first sketch to final shipment — sourcing, suppliers and the honest conversations in between.',
+    quote:
+      'Dealing with Oscar & Taylor was a pleasure, even through the ups and downs of sourcing a product overseas.',
+    quoteBy: 'Viking Performance',
+  },
+];
+
 export const CONTACT = {
   email: 'hello@weassistco.com',
   phone: '0423 096 093',
